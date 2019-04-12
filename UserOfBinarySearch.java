@@ -28,8 +28,9 @@ public class UserOfBinarySearch {
             foundAt = orderedList.indexOf( findMe);
             System.out.println( 
                 "Value " + findMe
-              + " was found at index " + foundAt
-              + ". That's correct, eh? " + (foundAt == i)
+              + " was found at index " + foundAt 
+              + " after " + orderedList.cost() + " iterations/comparisons."
+              + " That's correct, eh? " + (foundAt == i)
               );
         }
         System.out.println();
@@ -55,7 +56,8 @@ public class UserOfBinarySearch {
         System.out.println( description + ": "
           + " value " + value
           + " \"found\" at index " + foundAt
-          + ". That's correct, eh? " + (foundAt < 0)
+          + " after " + orderedList.cost() + " iterations/comparisons."
+          + " That's correct, eh? " + (foundAt < 0)
           );
      }
 }

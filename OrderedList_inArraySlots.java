@@ -10,17 +10,22 @@ public class OrderedList_inArraySlots
     implements OrderedList {
 
     private java.util.ArrayList<Integer> list_iAS;
+    private int indexOfIterations;
 
-
+    public int cost() {
+        return indexOfIterations;
+    }
+    
     /**
       @return the index of any occurrence of
               \findMe in this list, or -1 if
               \findMe is absent from this list.
      */
     public int indexOf( Integer findMe) {
-        return indexOf_whileStyle( findMe);
-        // return indexOf_recursive(
-            // findMe, 0, list_iAS.size() -1);
+        indexOfIterations = 0;
+        // return indexOf_whileStyle( findMe);
+        return indexOf_recursive(
+            findMe, 0, list_iAS.size() -1);
     }
 
 
@@ -32,6 +37,7 @@ public class OrderedList_inArraySlots
         int hi  = list_iAS.size() -1;  // inclusive
 
         while( low <= hi){
+            indexOfIterations += 1;
             int pageToCheck = (low + hi) / 2;
             int comparison =
               findMe.compareTo( list_iAS.get( pageToCheck));
@@ -62,6 +68,7 @@ public class OrderedList_inArraySlots
             return -2;   // solution to base case
               // value differs from while-style method, just FYI
         else{
+            indexOfIterations += 1;
             int pageToCheck = (low + hi) / 2;
             int comparison =
               findMe.compareTo( list_iAS.get( pageToCheck));
